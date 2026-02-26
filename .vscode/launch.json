@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "MNIST Training",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/examples/mnist/mnist-train-fc.py",
+            "args": ["${workspaceFolder}/examples/mnist/trained_model.gguf"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Debug with Arguments",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/mnist-eval",
+            "args": ["/home/leixian/leixian_ws/ggml/trained_model.gguf", "data/MNIST/raw/t10k-images-idx3-ubyte","data/MNIST/raw/t10k-labels-idx1-ubyte"],
+            "cwd": "${workspaceFolder}",
+            // "preLaunchTask": "build",  // 先编译，后调试
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}
