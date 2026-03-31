@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "MNIST Training",
+            "name": "py mnist-training",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/examples/mnist/mnist-train-fc.py",
@@ -15,14 +15,51 @@
         },
         {
             "name": "mnist-eval",
-            "type": "cppdbg",
+            "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/bin/Debug/mnist-eval.exe",
+            "program": "${workspaceFolder}/build/bin/RelWithDebInfo/mnist-eval.exe",
             "args": [
-                "${workspaceFolder}/examples/mnist/trained_model.gguf", 
+                "${workspaceFolder}/examples/mnist/mnist-fc-f32.gguf", 
             "${workspaceFolder}/data/MNIST/raw/t10k-images-idx3-ubyte",
             "${workspaceFolder}/data/MNIST/raw/t10k-labels-idx1-ubyte"],
-            "cwd": "${workspaceFolder}/build/bin/Debug/",
+            "cwd": "${workspaceFolder}/build/bin/RelWithDebInfo/",
+            // "preLaunchTask": "build",  // 先编译，后调试
+            // "MIMode": "gdb",
+            // "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "simple-ctx",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/RelWithDebInfo/simple-ctx.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}/build/bin/RelWithDebInfo/",
+            // "preLaunchTask": "build",  // 先编译，后调试
+            // "MIMode": "gdb",
+            // "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "simple-backend",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/RelWithDebInfo/simple-backend.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}/build/bin/RelWithDebInfo/",
+            // "preLaunchTask": "build",  // 先编译，后调试
+            // "MIMode": "gdb",
+            // "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "mnist-train",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/RelWithDebInfo/mnist-train.exe",
+            "args": [
+                "mnist-fc",
+            "${workspaceFolder}/examples/mnist/mnist-fc-f32.gguf",
+            "${workspaceFolder}/data/MNIST/raw/train-images-idx3-ubyte",
+            "${workspaceFolder}/data/MNIST/raw/train-labels-idx1-ubyte"],
+            "cwd": "${workspaceFolder}/build/bin/RelWithDebInfo/",
             // "preLaunchTask": "build",  // 先编译，后调试
             // "MIMode": "gdb",
             // "miDebuggerPath": "/usr/bin/gdb"
@@ -31,9 +68,9 @@
             "name": "Debug gpt-2-backend",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/bin/Debug/gpt-2-backend.exe",
+            "program": "${workspaceFolder}/build/bin/RelWithDebInfo/gpt-2-backend.exe",
             "args": ["-m","${workspaceFolder}/models/gpt-2-117M/ggml-model-f16.bin", "-p", "\"This is an example\""],
-            "cwd": "${workspaceFolder}/build/bin/Debug/",
+            "cwd": "${workspaceFolder}/build/bin/RelWithDebInfo/",
             // "preLaunchTask": "build",  // 先编译，后调试
             // "MIMode": "gdb",
             // "miDebuggerPath": "/usr/bin/gdb"

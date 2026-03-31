@@ -5,7 +5,10 @@
     //     "-DCMAKE_C_COMPILER=/usr/bin/gcc",
     //     "-DCMAKE_CXX_COMPILER=/usr/bin/g++"
     // ],
-    "cmake.buildType": "Debug",
-    "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
-    "cmake.configureOnOpen": true
+    "cmake.cmakePath": "D:/SoftWare/cmake-4.3.0-windows-x86_64/bin/cmake.exe", //1. cmake configure 按 F1 快捷键；
+    "cmake.generator": "Visual Studio 17 2022",
+    "cmake.configureSettings": {
+        "CMAKE_BUILD_TYPE": "Debug" //2. cmake buildtype Release or Debug
+    },
+    "cmake.buildDirectory": "${workspaceFolder}/build"
 }
